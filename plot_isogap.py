@@ -55,7 +55,8 @@ def get_meshgrid(csv_path):
     return datagrid
 
 def plot_meshgrid(grid,shapes=None,stations=None,save=None):
-    reg = [-73.55, -73.25, 3.95, 4.2]
+    # reg = [-73.55, -73.25, 3.95, 4.2] #apiay
+    reg = [-73.75,-73.35,3.46,4.26] #castilla
     fig = pygmt.Figure()
     fig.coast(region=reg,
             projection='M4.5i',
@@ -185,10 +186,19 @@ if __name__ == "__main__":
     # grid = get_meshgrid(gap_path)
     # plot_meshgrid(grid,None,stations,save)
 
-    gap_folder = "/mnt/SharedDrives/Ecopetrol/opt/ISOGAP/outs"
+
+    ### APIAY
+    # gap_folder = "/mnt/SharedDrives/Ecopetrol/opt/ISOGAP/outs"
+    # # gap_folder = "/home/emmanuel/5_stations"
+    # stations_path = "/mnt/SharedDrives/Ecopetrol/opt/ISOGAP/data/stations.csv"
+    # run_itermap(gap_folder,stations_path)
+
+    ### CASTILLA
+    gap_folder = "/mnt/SharedDrives/Ecopetrol/opt/ISOGAP/CASTILLA_outs"
     # gap_folder = "/home/emmanuel/5_stations"
-    stations_path = "/mnt/SharedDrives/Ecopetrol/opt/ISOGAP/data/stations.csv"
+    stations_path = "/home/emmanuel/ISOGAP/data/castilla.csv"
     run_itermap(gap_folder,stations_path)
+
 
 
     # import matplotlib.pyplot as plt

@@ -184,10 +184,26 @@ def input_area():
 	return minlon, maxlon, minlat, maxlat
 
 if __name__ == "__main__":
-	step = 0.005
-	grid = (-73.6,-73.2,3.8,4.3)
-	sta_csv = "/mnt/SharedDrives/Ecopetrol/opt/ISOGAP/data/stations.csv"
-	out_folder = "/mnt/SharedDrives/Ecopetrol/opt/ISOGAP/outs"
-	run_itergap(sta_csv,out_folder,grid,
-				step,sta_number=[3,4,5])
+	# step = 0.005
+	# grid = (-73.6,-73.2,3.8,4.3)
+	# sta_csv = "/mnt/SharedDrives/Ecopetrol/opt/ISOGAP/data/stations.csv"
+	# out_folder = "/mnt/SharedDrives/Ecopetrol/opt/ISOGAP/outs"
+	# run_itergap(sta_csv,out_folder,grid,
+	# 			step,sta_number=[3,4,5])
 
+	## CASTILLA
+	# step = 0.005
+	# grid = (-73.7833,-73.5487,3.775946,4.01155)
+	# sta_csv = "/home/emmanuel/ISOGAP/data/castilla.csv"
+	# out_folder = "/mnt/SharedDrives/Ecopetrol/opt/ISOGAP/CASTILLA_outs"
+	# run_itergap(sta_csv,out_folder,grid,
+	# 			step,sta_number=[12])
+
+	## CASTILLA
+	step = 0.1
+	# grid = (-73.7833,-73.5487,3.775946,4.01155)
+	grid = (-80,-60,-1,14)
+	sta_csv = "/home/emmanuel/ISOGAP/data/rsnc.csv"
+	out_folder = "/mnt/SharedDrives/Ecopetrol/opt/ISOGAP/RSNC_0.1_outs"
+	run_itergap(sta_csv,out_folder,grid,
+				step,sta_number=[64])
