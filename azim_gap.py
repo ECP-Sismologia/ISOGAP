@@ -51,23 +51,6 @@ def each_gap(lon,lat,net):
 	GAP = max(gaps(azz))
 	return GAP
 
-#reads stations file
-# def read_stations(arc):
-# 	with open(arc) as fl:
-# 		count = 0
-# 		NET = {}
-# 		for line in fl.readlines():
-# 			point=[]
-# 			if count > 0:
-# 				sta = line.strip().split(',')[0]
-# 				lon = float(line.strip().split(',')[1])
-# 				lat = float(line.strip().split(',')[2])
-# 				point.append(lon)
-# 				point.append(lat)
-# 				NET[sta] = point
-# 			count += 1
-# 	return NET
-
 def iter_read_stations(arc,sta_number=[]):
 	"""
 	Parameters:
@@ -146,7 +129,6 @@ def export_gap(NET, minlon, maxlon, minlat, maxlat,
 
 	out.close()
 
-
 def run_itergap(sta_csv,out_folder,grid,step,
 				sta_number=[]):
 	"""
@@ -165,7 +147,6 @@ def run_itergap(sta_csv,out_folder,grid,step,
 			export_gap(network, minlon, maxlon,
 						minlat, maxlat, step,
 						out_path)
-
 
 #Ask for longitudes and latitudes for the study area
 def input_area():
@@ -186,8 +167,8 @@ def input_area():
 if __name__ == "__main__":
 	step = 0.005
 	grid = (-73.6,-73.2,3.8,4.3)
-	sta_csv = "/mnt/SharedDrives/Ecopetrol/opt/ISOGAP/data/stations.csv"
-	out_folder = "/mnt/SharedDrives/Ecopetrol/opt/ISOGAP/outs"
+	sta_csv = "/home/emmanuel/Ecopetrol/ISOGAP/data/stations.csv"
+	out_folder = "/home/emmanuel/Ecopetrol/ISOGAP/outs"
 	run_itergap(sta_csv,out_folder,grid,
-				step,sta_number=[3,4,5])
+				step,sta_number=[6])
 
