@@ -165,10 +165,26 @@ def input_area():
 	return minlon, maxlon, minlat, maxlat
 
 if __name__ == "__main__":
-	step = 0.005
-	grid = (-73.6,-73.2,3.8,4.3)
-	sta_csv = "/home/emmanuel/Ecopetrol/ISOGAP/data/stations.csv"
-	out_folder = "/home/emmanuel/Ecopetrol/ISOGAP/outs"
+
+	## cse este
+	# step = 0.005
+	# grid = (-71.90225,-71.60683,3.60019,3.94436)
+	# sta_csv = "/home/emmanuel/Ecopetrol/ISOGAP/data/cs_este.csv"
+	# out_folder = "/home/emmanuel/Ecopetrol/ISOGAP/outs_cse"
+	# run_itergap(sta_csv,out_folder,grid,
+	# 			step,sta_number=[6])
+
+
+	step = 0.001
+	grid = (-73.76406,-73.62677,3.90422,4.00584)
+	# sta_csv = "/home/emmanuel/Ecopetrol/ISOGAP/data/akacias.csv"
+	# sta_csv = "/home/emmanuel/Ecopetrol/ISOGAP/data/akacias_2.csv"
+	sta_csv = "/home/emmanuel/Ecopetrol/ISOGAP/data/akacias_3.csv"
+	out_folder = "/home/emmanuel/Ecopetrol/ISOGAP/outs_akacias_3"
 	run_itergap(sta_csv,out_folder,grid,
-				step,sta_number=[6])
+				step,sta_number=[9])
+
+
+# -73.62677,4.00584
+	# sta_csv = "/home/emmanuel/Ecopetrol/ISOGAP/data/stations.csv"
 

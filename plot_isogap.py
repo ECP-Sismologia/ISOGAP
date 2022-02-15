@@ -106,7 +106,8 @@ def get_meshgrid(csv_path):
 
 def plot_meshgrid(grid,shapes=None,stations=None,
             cmap_args=None,save=None):
-    reg = [-73.55, -73.25, 3.95, 4.2]
+    # reg = [-73.55, -73.25, 3.95, 4.2] # reg
+    reg = [-71.8440,-71.6717,3.6449,3.8512] # cse
     fig = pygmt.Figure()
     fig.coast(region=reg,
             projection='M4.5i',
@@ -173,7 +174,8 @@ def plot_map(grid,shapes=None,stations=None,save=None):
     
     # reg1 = [-83, -68, -5, 15] Colombia 
     reg1 = [-85, -71, 2, 13]
-    reg2 = [-73.55, -73.25, 3.95, 4.2]
+    # reg2 = [-73.55, -73.25, 3.95, 4.2] 
+    reg2 = [-71.8440,-71.6717,3.6449,3.8512]  #este
 
     # reg2 = [-74, -73, 3.5, 4.5]
 
@@ -268,18 +270,25 @@ if __name__ == "__main__":
     # plot_meshgrid(grid,None,stations,save)
 
 
-    ###################  ITER PLOT
-    bloque_shp = "/mnt/SharedDrives/Ecopetrol/qgis/Campos/Apiay/gap/apiay_files/bloque_apiay.shp"
-    sh = get_shape(bloque_shp,{"AREA_NOMBR":["APIAY"]})
-    sh_obj = ShapeObject(data=sh[0],label="inyeccion",pen="1p,red,.")
-    print(sh_obj.__dict__)
+    ####################### PLOT CSE
+    gap_folder = "/home/emmanuel/Ecopetrol/ISOGAP/outs_cse"
+    stations_path = "/home/emmanuel/Ecopetrol/ISOGAP/data/cs_este.csv"
+    cmap_args = {"path": "/mnt/SharedDrives/Ecopetrol/opt/ISOGAP/data/viridis_50_360.cpt",
+                "limits":[50,360]}
+    run_itermap(gap_folder,stations_path,shapes=None,cmap_args=cmap_args)
 
-    gap_folder = "/home/emmanuel/Ecopetrol/ISOGAP/outs"
-    stations_path = "/home/emmanuel/Ecopetrol/ISOGAP/data/stations.csv"
-    cmap_args = {"path": "/mnt/SharedDrives/Ecopetrol/opt/ISOGAP/data/viridis_80_360.cpt",
-                "limits":[80,360]}
-    run_itermap(gap_folder,stations_path,shapes=[sh_obj ],cmap_args=cmap_args)
-    # run_itermap(gap_folder,stations_path,shapes=None,cmap_args=cmap_args)
+    ###################  ITER PLOT
+    # bloque_shp = "/mnt/SharedDrives/Ecopetrol/qgis/Campos/Apiay/gap/apiay_files/bloque_apiay.shp"
+    # sh = get_shape(bloque_shp,{"AREA_NOMBR":["APIAY"]})
+    # sh_obj = ShapeObject(data=sh[0],label="inyeccion",pen="1p,red,.")
+    # print(sh_obj.__dict__)
+
+    # gap_folder = "/home/emmanuel/Ecopetrol/ISOGAP/outs"
+    # stations_path = "/home/emmanuel/Ecopetrol/ISOGAP/data/stations.csv"
+    # cmap_args = {"path": "/mnt/SharedDrives/Ecopetrol/opt/ISOGAP/data/viridis_80_360.cpt",
+    #             "limits":[80,360]}
+    # run_itermap(gap_folder,stations_path,shapes=[sh_obj ],cmap_args=cmap_args)
+    # # run_itermap(gap_folder,stations_path,shapes=None,cmap_args=cmap_args)
 
     ###################  SHP PROVES
     # bloque_shp = "/mnt/SharedDrives/Ecopetrol/qgis/data/MAPA/MAPA/head shape/Heads-Trajectory.shp"
